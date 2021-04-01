@@ -1,0 +1,41 @@
+<view class="record">
+  <view class="today">
+    <view class="title">今天</view>
+    <view class="text"><text style="font-size: 60rpx">{{today.hr_avg || '-'}}</text>次/分</view>
+  </view>
+  <view class="yesterday">
+    <view class="title">昨天</view>
+    <view class="text"><text style="font-size: 60rpx">{{yesterday.hr_avg || '-'}}</text>次/分</view>
+  </view>
+</view>
+
+<view class="tips">
+  <view class="content" wx:if="{{!today.hrv}}">您今天还没有测量HRV哦!</view>
+  <image wx:if="{{!today.hrv}}" src="../../asstes/measure.png" mode="widthFix" />
+  <view class="content" wx:if="{{today.hrv > 8}}">
+    <view class="hrv_wrapper">
+      <image src="../../asstes/good.png" />
+      <text>HRV：<text class="hrv_text" style="color: #2d8327">{{today.hrv}}毫秒</text></text>
+    </view>
+    您的HRV处于良好状态，请继续维持，可以适当做些高强度运动!
+  </view>
+  <view class="content" wx:if="{{today.hrv > 4 && today.hrv <= 8}}">
+    <view class="hrv_wrapper">
+      <image src="../../asstes/mid.png" />
+      HRV：<text class="hrv_text">{{today.hrv}}毫秒</text>
+    </view>
+    您的HRV处于中等状态，可以维持现在的生活状态，最好可以适当加点锻炼!
+  </view>
+  <view class="content" wx:if="{{today.hrv > 0 && today.hrv <= 4}}">
+    <view class="hrv_wrapper">
+      <image src="../../asstes/bad.png" />
+      HRV：<text class="hrv_text">{{today.hrv}}毫秒</text>
+    </view>
+    您的HRV处于较低状态，您现在的压力可能太大了，请注意及时休息，以避免过度劳累!
+  </view>
+</view>
+
+<view class="btn_wrap">
+  <view class="btn" bindtap="handleClick" data-type="0">通过亮度测量</view>
+  <view class="btn" bindtap="handleClick" data-type="1">通过红通道测量</view>
+</view>

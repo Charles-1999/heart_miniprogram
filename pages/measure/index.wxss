@@ -1,0 +1,211 @@
+/* pages/measure/index.wxss */
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 140rpx;
+  box-sizing: border-box;
+}
+
+.camera_wrapper {
+  display: flex;
+  margin: 20rpx 0;
+}
+
+.camera {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95px;
+  height: 95px;
+  margin: 0 40rpx;
+  border-radius: 50%;
+}
+
+.camera_outline_white {
+  background-color: #fff;
+}
+.camera_outline_green {
+  background-color: green;
+}
+.camera_outline_yellow {
+  background-color: yellow;
+}
+
+camera {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.instruction .title {
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+}
+
+.content {
+
+}
+
+.divider {
+  height: 80rpx;
+  background-color: #d3d3d3;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40rpx 0;
+}
+
+.data_wrapper {
+  /* display: flex; */
+}
+
+.container {
+  /* width: 100%; */
+  padding: 0;
+}
+
+.f2-chart {
+  width: 100%;
+  height: 400rpx;
+}
+
+.ppg {
+  width: 100%;
+  /* padding: 0 40rpx 40rpx; */
+}
+
+.ppg canvas {
+  width: 100%;
+  height: 350rpx;
+  /* background-color: blue; */
+}
+
+.rate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rate .title {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+/* 计时器 */
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+}
+
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300rpx;
+  height: 300rpx;
+  padding: 25rpx;
+  margin: 40rpx 0;
+  border-radius: 50%;
+  background-color: #d3d3d3;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 30rpx solid orange;
+  background-color: #d3d3d3;
+  box-sizing: border-box;
+  font-size: 50rpx;
+}
+
+.note {
+  font-size: 30rpx;
+}
+
+.bottom_bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140rpx;
+  padding: 20rpx;
+  padding-bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #d3d3d3;
+  box-sizing: border-box;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 20rpx;
+  background-color: #1c2d50;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+/* res数据 */
+.res {
+  margin: 30rpx;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background-color: #e4e3e3;
+}
+
+.res .title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.data {
+  color: red;
+  font-size: 30rpx;
+}
+
+.data .num {
+  font-weight: 700;
+  font-size: 50rpx;
+  color: #000;
+}
+
+/* .hr_avg .title {
+  font-size: 36rpx;
+}
+
+.hr_avg .data {
+  font-size: 40rpx;
+}
+
+.hr_avg .data .num {
+  font-size: 60rpx;
+} */
+
+.hr_min_max {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40rpx 0;
+}

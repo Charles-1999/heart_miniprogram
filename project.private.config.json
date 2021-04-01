@@ -1,0 +1,35 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/measure/index",
+          "pathName": "pages/measure/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/measure/index",
+          "pathName": "pages/measure/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/record/index",
+          "pathName": "pages/record/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "f2": "@antv/wx-f2"
+  },
+  "navigationBarBackgroundColor": "#d3d3d3",
+  "navigationBarTitleText": "测量"
+}

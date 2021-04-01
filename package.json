@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@antv/f2-canvas": "^1.0.5",
+    "@antv/wx-f2": "^2.1.1"
+  }
+}

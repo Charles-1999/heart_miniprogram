@@ -1,0 +1,58 @@
+<view class="bg_white wrapper">
+  <view class="section_bar">
+    <view class="section {{current==0?'active':null}}" bindtap="handleSwitch" data-index="0">心率</view>
+    <view class="section {{current==1?'active':null}}" bindtap="handleSwitch" data-index="1">范围</view>
+    <view class="section {{current==2?'active':null}}" bindtap="handleSwitch" data-index="2">HRV</view>
+  </view>
+
+  <view class="preview_wrapper">
+    <view class="data_wrapper">
+      <view class="title">心率</view>
+      <view class="data"><text class="data_text">{{preview_data.hr_avg}}</text>次/分</view>
+    </view>
+    <view class="data_wrapper" style="flex: 3;">
+      <view class="title">范围</view>
+      <view class="data"><text class="data_text">{{preview_data.hr_min}}-{{preview_data.hr_max}}</text>次/分
+      </view>
+    </view>
+    <view class="data_wrapper">
+      <view class="title">HRV</view>
+      <view class="data"><text class="data_text">{{preview_data.hrv}}</text>毫秒</view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="title">最近</view>
+    <f2 class="f2-chart" onInit="{{onInitChart}}" />
+  </view>
+
+  <view class="new">
+    <view>最新：{{dataList[0].time}}</view>
+    <view wx:if="{{current == 0}}"><text class="data_text">{{dataList[0].hr_avg}}</text>次/分</view>
+    <view wx:if="{{current == 1}}"><text class="data_text">{{dataList[0].hr_min}}-{{dataList[0].hr_max}}</text>次/分
+    </view>
+    <view wx:if="{{current == 2}}"><text class="data_text">{{dataList[0].hrv}}</text>毫秒</view>
+  </view>
+</view>
+
+<view class="tips_wrapper">
+  <view class="title">健康小Tips</view>
+  <view class="content">{{tip.content}}</view>
+</view>
+
+<!-- <view class="table">
+  <view class="thead">
+    <view class="th">日期</view>
+    <view class="th">时间</view>
+    <view class="th">心率</view>
+    <view class="th">HRV</view>
+  </view>
+  <view class="tbody">
+    <view class="tr" wx:for="{{dataList}}" wx:key="id">
+      <view class="td">2021-3-30</view>
+      <view class="td">21:47</view>
+      <view class="td">{{item.avg}}</view>
+      <view class="td">{{item.hrv}}</view>
+    </view>
+  </view>
+</view> -->
