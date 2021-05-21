@@ -12,9 +12,24 @@ Page({
     this.getData();
   },
   handleClick(e) {
-    wx.navigateTo({
-      url: '/pages/measure/index?type=' + e.currentTarget.dataset.type,
-    })
+    if (!wx.getStorageSync('openid')) {
+      wx.showModal({
+        title: "提示",
+        content: "请登陆后进行测量",
+        cancelColor: 'cancelColor',
+        success: res => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/index',
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/measure/index?type=' + e.currentTarget.dataset.type,
+      })
+    }
   },
   async getData() {
     try {
@@ -23,7 +38,7 @@ Page({
         today: dataList[0],
         yesterday: dataList[1]
       })
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }

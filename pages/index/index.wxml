@@ -10,8 +10,8 @@
 </view>
 
 <view class="tips">
-  <view class="content" wx:if="{{!today.hrv}}">您今天还没有测量HRV哦!</view>
-  <image wx:if="{{!today.hrv}}" src="../../asstes/measure.png" mode="widthFix" />
+  <view class="content" wx:if="{{today.hrv == undefined}}">您今天还没有测量HRV哦!</view>
+  <image wx:if="{{today.hrv == undefined}}" src="../../asstes/measure.png" mode="widthFix" />
   <view class="content" wx:if="{{today.hrv > 8}}">
     <view class="hrv_wrapper">
       <image src="../../asstes/good.png" />
@@ -26,7 +26,7 @@
     </view>
     您的HRV处于中等状态，可以维持现在的生活状态，最好可以适当加点锻炼!
   </view>
-  <view class="content" wx:if="{{today.hrv > 0 && today.hrv <= 4}}">
+  <view class="content" wx:if="{{today.hrv >= 0 && today.hrv <= 4}}">
     <view class="hrv_wrapper">
       <image src="../../asstes/bad.png" />
       HRV：<text class="hrv_text">{{today.hrv}}毫秒</text>
@@ -38,4 +38,5 @@
 <view class="btn_wrap">
   <view class="btn" bindtap="handleClick" data-type="0">通过亮度测量</view>
   <view class="btn" bindtap="handleClick" data-type="1">通过红通道测量</view>
+  <!-- <view class="btn" bindtap="handleClick" data-type="2">本地计算</view> -->
 </view>

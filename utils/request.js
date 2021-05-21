@@ -1,4 +1,8 @@
-const BASE_URL = 'http://192.168.31.25:7001'
+// const BASE_URL = 'http://192.168.31.25:7002';
+// const BASE_URL = 'http://172.20.10.12:7002';
+// const BASE_URL = 'http://10.20.49.23:7002';
+// const BASE_URL = 'http://114.215.176.39:7002';
+const BASE_URL = 'https://heart.ozozai.com'; 
 
 export default function request(options) {
   const { url, body, method = 'GET', header } = options;
@@ -8,7 +12,8 @@ export default function request(options) {
       method: method.toUpperCase(),
       data: body,
       header: {
-        ...header
+        ...header,
+        openid: wx.getStorageSync('openid')
       },
       success: res => {
         console.log('res', res);

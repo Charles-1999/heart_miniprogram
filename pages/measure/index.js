@@ -1,5 +1,8 @@
 var wxCharts = require("../../utils/wxcharts");
 import request from '../../utils/request';
+import fitter from '../../utils/polyfit';
+import PeakCount from '../../utils/PeakCounter';
+import getHeartRate from '../../utils/heartRate';
 
 Page({
   data: {
@@ -7,6 +10,7 @@ Page({
     id: 0,
     res: null,  // data from serve
     data: [],   // data to serve
+    grey_list: [], 
     draw_data: [],  // data for draw
     cameraReady: false,
     afterMeasure: false,
@@ -14,10 +18,10 @@ Page({
   },
   onLoad(options) {
     const { type } = this.options;
-    let { data, draw_data, window_size } = this.data;
+    let { data, draw_data, window_size, grey_list } = this.data;
     let cameraReady = false;
     const ctx = wx.createCameraContext();
-    
+
     const listener = ctx.onCameraFrame(frame => {
       const buf = frame.data;
       const rgba_arr = new Uint8Array(buf);
@@ -31,8 +35,8 @@ Page({
         red += rgba_arr[i];
         green += rgba_arr[i + 1];
         blue += rgba_arr[i + 2];
-        // grey += red * 3 + blue * 6 + blue;
       }
+      grey = parseInt((red * 299 + blue * 587 + blue * 114) / 1000);
 
       // 开始倒计时测量
       if (!cameraReady) {
@@ -53,6 +57,7 @@ Page({
       if (red > 100000) draw_data.push(red);
       this.getMothElectro();
       data.push([red, green, blue]);
+      grey_list.push(grey);
     })
 
     this.setData({
@@ -60,13 +65,13 @@ Page({
     })
   },
   onReady() {
-    let { listener, cameraReady } = this.data;
+    let { listener } = this.data;
     setTimeout(() => {
       listener.start();
     }, 1000)
   },
   async setCounter() {
-    let { id, counter, listener, data, type, draw_data } = this.data;
+    let { id, counter, listener, data, grey_list, type, draw_data } = this.data;
     counter--;
     this.setData({
       counter
@@ -75,25 +80,41 @@ Page({
     if (counter == 0) {
       clearInterval(id);
       listener.stop();
-      
-      try {
-        const res = await request({
-          url: '/data',
-          method: 'post',
-          body: {
-            data: JSON.stringify(data),
-            type
-          }
-        })
-        if (res) {
-          this.setData({
-            afterMeasure: true,
-            res: res.data[0]
-          })
+
+      // if (type == 2) {
+        // 本机计算
+        console.log(grey_list);
+        const fit_grey = fitter(grey_list);
+        const fix_grey = [];
+        for (let i = 0; i < fit_grey.length; i++) {
+          fix_grey.push(grey_list[i] - fit_grey[i]);
         }
-      } catch (err) {
-        console.log(err)
-      }
+        const fps = grey_list.length / 12;
+        const peak = PeakCount(fix_grey.splice(parseInt(fps), parseInt(fps) * 11));
+        const heart_rate = getHeartRate(peak, fps);
+        // console.log(heart_rate);
+      // } else {
+        // 服务器计算
+        try {
+          const res = await request({
+            url: '/data',
+            method: 'post',
+            body: {
+              data: JSON.stringify(data),
+              type
+            }
+          })
+          if (res) {
+            // console.log(res)
+            this.setData({
+              afterMeasure: true,
+              res: res.data[0]
+            })
+          }
+        } catch (err) {
+          console.log(err)
+        }
+      // }
     }
   },
   handleCancle() {

@@ -20,7 +20,7 @@ page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20rpx 0 80rpx;
+  margin: 20rpx 0 40rpx;
 }
 
 .yesterday {

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/measure/index",
-    "pages/record/index"
+    "pages/record/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

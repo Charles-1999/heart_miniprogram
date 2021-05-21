@@ -12,11 +12,26 @@ Page({
     limit: 20
   },
   onShow() {
-    this.getHistory();
-    this.getTips();
-    this.setData({
-      onInitChart: this.onInitChart
-    })
+    if (!wx.getStorageSync('openid')) {
+      wx.showModal({
+        title: "提示",
+        content: "请登陆后查看个人历史记录",
+        cancelColor: 'cancelColor',
+        success: res => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/index',
+            })
+          }
+        }
+      })
+    } else {
+      this.getHistory();
+      this.getTips();
+      this.setData({
+        onInitChart: this.onInitChart
+      })
+    }
   },
   handleSwitch(e) {
     const current = e.currentTarget.dataset['index'];

@@ -1,6 +1,6 @@
 export default function PeakCount(frameData) {
     var peak = 0;
-    var peakNtrough = new Array(frameData.length).fill('');
+    var peakNtrough = new Array(frameData.length).fill(0);
 
     for (var low = 0, middle = 1, high = 2; high < frameData.length; high++) {
         //令data[low]不等于data[middle]
@@ -74,10 +74,10 @@ export default function PeakCount(frameData) {
 
     var final_count = [];//心跳帧
 
-    final_count.push(frames[0])
+    final_count.push(frames[0]);
     var ld = 1; //上一个有效帧
     for(var i = 1; i < frames.length; i++){        
-        if(frames[i] - frames[i - ld] > avgInterval){
+        if(frames[i] - frames[i - ld] > avgInterval * 0.7){
             final_count.push(frames[i]);
             ld = 1;
         }else{

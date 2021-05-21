@@ -27,6 +27,12 @@
         {
           "name": "pages/record/index",
           "pathName": "pages/record/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
           "scene": null
         }
       ]
