@@ -76,13 +76,13 @@ Page({
       }).style({
         radius: 10
       }).color('#ff3054');
-      chart.scrollBar({
-        mode: 'x',
-        xStyle: {
-          offsetY: -5,
-          size: 0
-        }
-      });
+      // chart.scrollBar({
+      //   mode: 'x',
+      //   xStyle: {
+      //     offsetY: -5,
+      //     size: 0
+      //   }
+      // });
     } else if (current == 1) {
       /**
        * 范围
@@ -122,13 +122,13 @@ Page({
       }).style({
         radius: 10
       }).color('#ff3054');
-      chart.scrollBar({
-        mode: 'x',
-        xStyle: {
-          offsetY: -5,
-          size: 0
-        }
-      });
+      // chart.scrollBar({
+      //   mode: 'x',
+      //   xStyle: {
+      //     offsetY: -5,
+      //     size: 0
+      //   }
+      // });
     } else if (current == 2) {
       /**
        * HRV
@@ -242,13 +242,13 @@ Page({
     }).style({
       radius: 10
     }).color('#ff3054');
-    chart.scrollBar({
-      mode: 'x',
-      xStyle: {
-        offsetY: -5,
-        size: 1
-      }
-    });
+    // chart.scrollBar({
+    //   mode: 'x',
+    //   xStyle: {
+    //     offsetY: -5,
+    //     size: 1
+    //   }
+    // });
     chart.render();
     // 注意：需要把chart return 出来
     return chart;

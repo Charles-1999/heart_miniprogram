@@ -1,0 +1,5 @@
+/* pages/analyse/index.wxss */
+.f2-chart {
+  width: 100%;
+  height: 400rpx;
+}

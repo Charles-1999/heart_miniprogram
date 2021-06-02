@@ -6,7 +6,7 @@ import getHeartRate from '../../utils/heartRate';
 
 Page({
   data: {
-    counter: 12,  // measure duration
+    counter: 1,  // measure duration
     id: 0,
     res: null,  // data from serve
     data: [],   // data to serve

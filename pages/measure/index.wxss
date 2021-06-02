@@ -25,9 +25,11 @@ page {
 .camera_outline_white {
   background-color: #fff;
 }
+
 .camera_outline_green {
   background-color: green;
 }
+
 .camera_outline_yellow {
   background-color: yellow;
 }
@@ -51,9 +53,7 @@ camera {
   margin-bottom: 30rpx;
 }
 
-.content {
-
-}
+.content {}
 
 .divider {
   height: 80rpx;
@@ -169,10 +169,41 @@ camera {
 
 /* res数据 */
 .res {
+  display: flex;
   margin: 30rpx;
-  padding: 30rpx;
+  padding: 0 30rpx;
   border-radius: 20rpx;
   background-color: #e4e3e3;
+}
+
+.data_wrap {
+  flex: 1;
+}
+
+.data_text_wrap {
+  margin: 20rpx 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.res .right .title {
+  font-size: 40rpx;
+  color: black;
+}
+
+.res .right .data .num {
+  font-size: 70rpx;
+}
+
+.res .right .data_text_wrap {
+  padding: 40rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
 }
 
 .res .title {

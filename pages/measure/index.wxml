@@ -24,7 +24,27 @@
     <text class="note">请尝试放松并且自然地呼吸</text>
   </view>
   <view class="res" wx:else>
-    <view class="hr_avg">
+    <view class="data_wrap">
+      <view class="data_text_wrap">
+        <view class="title">心率</view>
+        <view class="data"><text class="num">{{res.hr_avg}}</text><text>次/分</text></view>
+      </view>
+      <view class="data_text_wrap">
+        <view class="title">最低心率</view>
+        <view class="data"><text class="num">{{res.hr_min}}</text><text>次/分</text></view>
+      </view>
+      <view class="data_text_wrap">
+        <view class="title">最高心率</view>
+        <view class="data"><text class="num">{{res.hr_max}}</text><text>次/分</text></view>
+      </view>
+    </view>
+    <view class="data_wrap right">
+      <view class="data_text_wrap">
+        <view class="title">心率变异性</view>
+        <view class="data"><text class="num">{{res.hrv}}</text><text>毫秒</text></view>
+      </view>
+    </view>
+    <!-- <view class="hr_avg">
       <view class="title">心率</view>
       <view class="data"><text class="num">{{res.hr_avg}}</text><text>次/分</text></view>
     </view>
@@ -41,7 +61,7 @@
     <view class="hrv">
       <view class="title">心率变异性</view>
       <view class="data"><text class="num">{{res.hrv}}</text><text>毫秒</text></view>
-    </view>
+    </view> -->
   </view>
 </view>
 

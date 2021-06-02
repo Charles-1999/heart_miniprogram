@@ -39,20 +39,3 @@
   <view class="title">健康小Tips</view>
   <view class="content">{{tip.content}}</view>
 </view>
-
-<!-- <view class="table">
-  <view class="thead">
-    <view class="th">日期</view>
-    <view class="th">时间</view>
-    <view class="th">心率</view>
-    <view class="th">HRV</view>
-  </view>
-  <view class="tbody">
-    <view class="tr" wx:for="{{dataList}}" wx:key="id">
-      <view class="td">2021-3-30</view>
-      <view class="td">21:47</view>
-      <view class="td">{{item.avg}}</view>
-      <view class="td">{{item.hrv}}</view>
-    </view>
-  </view>
-</view> -->
