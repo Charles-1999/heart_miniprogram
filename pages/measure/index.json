@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "f2": "@antv/wx-f2"
+    "f2": "@antv/wx-f2",
+    "van-circle": "@vant/weapp/circle/index"
   },
   "navigationBarBackgroundColor": "#d3d3d3",
   "navigationBarTitleText": "测量"

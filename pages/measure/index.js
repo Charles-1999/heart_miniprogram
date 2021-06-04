@@ -6,7 +6,7 @@ import getHeartRate from '../../utils/heartRate';
 
 Page({
   data: {
-    counter: 1,  // measure duration
+    counter: 12,  // measure duration
     id: 0,
     res: null,  // data from serve
     data: [],   // data to serve
@@ -14,7 +14,12 @@ Page({
     draw_data: [],  // data for draw
     cameraReady: false,
     afterMeasure: false,
-    window_size: 75
+    window_size: 75,
+    value: 0,
+    gradientColor: {
+      '0%': '#7ca6fa',
+      '100%': '#1c2d50',
+    },
   },
   onLoad(options) {
     const { type } = this.options;
@@ -71,10 +76,12 @@ Page({
     }, 1000)
   },
   async setCounter() {
-    let { id, counter, listener, data, grey_list, type, draw_data } = this.data;
+    let { id, counter, value, listener, data, grey_list, type, draw_data } = this.data;
     counter--;
     this.setData({
-      counter
+      counter,
+      value: Math.ceil((12 - counter) / 12*100),
+      
     })
 
     if (counter == 0) {
@@ -162,4 +169,9 @@ Page({
       }
     });
   },
+  nextOneStep(){
+    wx.navigateTo({
+      url: '/pages/collect/index'
+    })
+  }
 })

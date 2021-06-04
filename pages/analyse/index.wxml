@@ -3,5 +3,5 @@
 </view>
 
 <view class="container">
-  <f2 class="f2-chart" onInit="{{onInitRadar}}" />
+  <f2 class="f2-chart" onInit="{{onInitRadar}}" style="height:600rpx;" />
 </view>

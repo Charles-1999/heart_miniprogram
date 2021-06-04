@@ -45,6 +45,7 @@ Page({
       hasUserInfo: true,
       userInfo
     })
+    wx.setStorageSync('userInfo', userInfo)
 
     const res = await wx.login()
     const { openid } = await request({

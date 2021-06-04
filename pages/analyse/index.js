@@ -7,6 +7,7 @@ Page({
     data: []
   },
   onLoad: function (options) {
+
     this.getDateData()
     this.setData({
       onInitChart: this.onInitChart,
@@ -109,7 +110,7 @@ Page({
     }
     console.log(source)
 
-    for (let i = 0; i < 50; i ++) {
+    for (let i = 0; i < 50; i++) {
 
     }
 
@@ -144,29 +145,30 @@ Page({
     chart.render();
   },
   onInitRadar(F2, config) {
+
     const data = [{
       item: '压力',
-      user: '用户 A',
+      user: wx.getStorageSync('userInfo').nickName,
       score: 70
     }, {
       item: '运动量',
-      user: '用户 A',
-      score: 60
+      user: wx.getStorageSync('userInfo').nickName,
+      score: wx.getStorageSync('sportsData')
     }, {
       item: '睡眠',
-      user: '用户 A',
-      score: 50
+      user: wx.getStorageSync('userInfo').nickName,
+      score: wx.getStorageSync('sleepData')
     }, {
       item: '疲劳感',
-      user: '用户 A',
-      score: 40
+      user: wx.getStorageSync('userInfo').nickName,
+      score: wx.getStorageSync('tiredData')
     }, {
       item: '愉悦感',
-      user: '用户 A',
-      score: 60
+      user: wx.getStorageSync('userInfo').nickName,
+      score: wx.getStorageSync('happyData')
     }, {
       item: 'HRV',
-      user: '用户 A',
+      user: wx.getStorageSync('userInfo').nickName,
       score: 70
     }];
     const chart = new F2.Chart({
@@ -222,6 +224,12 @@ Page({
           animation: 'groupWaveIn'
         }
       });
+    chart.guide().tag({
+      textStyle: {
+        fontSize: 120,
+        fill: '#fff'
+      }, 
+    })
     chart.point().position('item*score').color('user')
       .style({
         stroke: '#fff',

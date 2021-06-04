@@ -4,7 +4,8 @@
     "pages/measure/index",
     "pages/record/index",
     "pages/login/index",
-    "pages/analyse/index"
+    "pages/analyse/index",
+    "pages/collect/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,48 @@
+/* pages/collect/index.wxss */
+.custom-button {
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+  background-color: #1c2d50;
+  color: #fff;
+  box-shadow: 6rpx 4rpx 8rpx 2rpx #1c2d50;
+}
+
+.title {
+  color: #1c2d50;
+  font-weight: bolder;
+  font-size: xx-large;
+  margin: 50rpx 0 0 20rpx;
+}
+
+.title-1 {
+  margin-bottom: 30rpx; 
+}
+
+.item {
+  margin: 150rpx 20rpx;
+}
+
+.bottom_bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140rpx;
+  padding: 20rpx;
+  padding-bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #d3d3d3;
+  box-sizing: border-box;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 20rpx;
+  background-color: #1c2d50;
+  color: #fff;
+  font-size: 32rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-slider": "@vant/weapp/slider/index",
+    "van-toast": "@vant/weapp/toast/index"
+  }
+}

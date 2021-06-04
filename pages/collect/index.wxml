@@ -1,0 +1,55 @@
+<!--pages/collect/index.wxml-->
+<view class="contianer">
+  <view class="title">更多记录...</view>
+
+  <view class="item">
+    <view class="title-1">昨日睡眠质量</view>
+    <van-slider value="{{ currentValue1 }}" use-button-slot bind:drag="onDrag1" value="50" bar-height="4px"
+      active-color="#2d3c5e">
+      <view class="custom-button" slot="button">
+        {{ currentValue1 }}
+      </view>
+    </van-slider>
+  </view>
+
+
+  <view class="item">
+    <view class="title-1">近4小时运动量</view>
+    <van-slider value="{{ currentValue2 }}" use-button-slot bind:drag="onDrag2" value="50" bar-height="4px"
+      active-color="#2d3c5e">
+      <view class="custom-button" slot="button">
+        {{ currentValue2 }}
+      </view>
+    </van-slider>
+  </view>
+
+
+  <view class="item">
+    <view class="title-1">当前愉悦感</view>
+    <van-slider value="{{ currentValue3 }}" use-button-slot bind:drag="onDrag3" value="50" bar-height="4px"
+      active-color="#2d3c5e">
+      <view class="custom-button" slot="button">
+        {{ currentValue3 }}
+      </view>
+    </van-slider>
+  </view>
+
+
+  <view class="item">
+    <view class="title-1">当前身体疲劳度</view>
+    <van-slider value="{{ currentValue4 }}" use-button-slot bind:drag="onDrag4" value="50" bar-height="4px"
+      active-color="#2d3c5e">
+      <view class="custom-button" slot="button">
+        {{ currentValue4 }}
+      </view>
+    </van-slider>
+  </view>
+
+  <view class="bottom_bar">
+  <view class="btn" bindtap="handleConfirm">确认</view>
+</view>
+
+
+</view>
+
+<van-toast id="van-toast" />

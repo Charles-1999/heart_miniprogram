@@ -16,11 +16,12 @@
   </view>
   <view class="timer" wx:if="{{!afterMeasure}}">
     <text>计时器</text>
-    <view class="outer">
+    <!-- <view class="outer">
       <view class="inner">
         {{counter}}
       </view>
-    </view>
+    </view> -->
+    <van-circle value="{{ value }}" color="{{ gradientColor }}" stroke-width="15" speed="10" size="160" text="{{counter}}" style="margin: 30rpx auto;"/>
     <text class="note">请尝试放松并且自然地呼吸</text>
   </view>
   <view class="res" wx:else>
@@ -44,27 +45,10 @@
         <view class="data"><text class="num">{{res.hrv}}</text><text>毫秒</text></view>
       </view>
     </view>
-    <!-- <view class="hr_avg">
-      <view class="title">心率</view>
-      <view class="data"><text class="num">{{res.hr_avg}}</text><text>次/分</text></view>
-    </view>
-    <view class="hr_min_max">
-      <view>
-        <view class="title">最低心率</view>
-        <view class="data"><text class="num">{{res.hr_min}}</text><text>次/分</text></view>
-      </view>
-      <view>
-        <view class="title">最高心率</view>
-        <view class="data"><text class="num">{{res.hr_max}}</text><text>次/分</text></view>
-      </view>
-    </view>
-    <view class="hrv">
-      <view class="title">心率变异性</view>
-      <view class="data"><text class="num">{{res.hrv}}</text><text>毫秒</text></view>
-    </view> -->
   </view>
 </view>
 
 <view class="bottom_bar">
-  <view class="btn" bindtap="handleCancle">取消</view>
+  <view class="btn" bindtap="handleCancle" wx:if="{{!afterMeasure}}">取消</view>
+  <view class="btn" bindtap="nextOneStep" wx:else>下一步</view>
 </view>
